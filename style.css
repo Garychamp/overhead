@@ -30,6 +30,8 @@ body {
 
 /* Header */
 .site-header {
+  position: relative;
+  overflow: hidden;
   text-align: center;
   padding: 1.25rem 1rem;
   background: rgba(8, 26, 56, 0.45);
@@ -42,6 +44,33 @@ body {
   font-weight: 700;
   letter-spacing: 0.35em;
   text-transform: uppercase;
+}
+
+.header-plane {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 120px;
+  transform: translateY(-50%);
+  animation: fly-across 8s linear infinite;
+  pointer-events: none;
+}
+
+.header-plane svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes fly-across {
+  from {
+    transform: translate(-150px, -50%);
+  }
+  to {
+    transform: translate(calc(100vw + 150px), -50%);
+  }
 }
 
 /* Main grid: map + details sidebar */
