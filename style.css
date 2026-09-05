@@ -34,7 +34,7 @@ body {
   padding: 1.25rem 1rem;
   background: rgba(8, 26, 56, 0.45);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--panel-border);
+  border: 1px solid #fff;
 }
 
 .site-header h1 {
@@ -56,7 +56,7 @@ body {
 .map-panel,
 .details-panel {
   background: var(--panel-bg);
-  border: 1px solid var(--panel-border);
+  border: 1px solid #fff;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
@@ -99,6 +99,38 @@ body {
   font-size: 0.95rem;
 }
 
+#flight-list li .callsign {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+#flight-list li .meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+#flight-list li .meta.muted {
+  opacity: 0.75;
+  font-size: 0.78rem;
+}
+
+/* Plane markers on the map */
+.plane-marker {
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+  cursor: pointer;
+}
+
+/* Leaflet popup on dark theme */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--blue-deep);
+  color: var(--text-light);
+}
+
 /* Footer */
 .site-footer {
   text-align: center;
@@ -106,7 +138,7 @@ body {
   font-size: 0.85rem;
   color: var(--text-muted);
   background: rgba(8, 26, 56, 0.45);
-  border-top: 1px solid var(--panel-border);
+  border: 1px solid #fff;
 }
 
 .footer-note {
