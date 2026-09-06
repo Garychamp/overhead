@@ -50,26 +50,24 @@ body {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 120px;
   transform: translateY(-50%);
   animation: fly-across 8s linear infinite;
   pointer-events: none;
 }
 
-.header-plane svg {
+.header-plane img {
   display: block;
-  width: 100%;
-  height: auto;
-  transform: scaleX(-1);
+  height: 56px;
+  width: auto;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes fly-across {
   from {
-    transform: translate(-150px, -50%);
+    transform: translate(-110%, -50%);
   }
   to {
-    transform: translate(calc(100vw + 150px), -50%);
+    transform: translate(100vw, -50%);
   }
 }
 
