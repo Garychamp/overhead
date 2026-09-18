@@ -11,7 +11,8 @@ Overhead is a real-time flight tracker that shows aircraft flying within a 10 km
 - Displays aircraft markers with heading, altitude, callsign, aircraft type, registration, speed, and distance.
 - Keeps a 24-hour flight history in browser local storage.
 - Includes a local callsign route lookup for selected flights.
-- Uses a responsive blue-gradient interface with an animated aircraft in the header.
+- Uses a responsive light sky-blue and white airline-style interface with an animated aircraft in the header.
+- Includes an About page explaining the 10 km overhead detection area and flight details.
 
 ## Running the project
 
@@ -35,7 +36,8 @@ The 24-hour history is recorded from the time the app is running and is stored l
 ## Project files
 
 - `index.html` — page structure, Leaflet and font dependencies.
-- `style.css` — responsive layout, blue theme, panel borders, markers, and animation.
+- `about.html` — information page describing the tracker and its flight details.
+- `style.css` — responsive layout, airline-inspired light theme, typography, panel borders, markers, and animation.
 - `javascript.js` — map setup, geolocation, polling, filtering, history, route lookup, and rendering.
 - `proxy.js` — local CORS proxy for live aircraft data.
 
@@ -43,5 +45,5 @@ The 24-hour history is recorded from the time the app is running and is stored l
 
 - HTML, CSS, and vanilla JavaScript
 - [Leaflet](https://leafletjs.com/) with OpenStreetMap tiles
-- [Barlow](https://fonts.google.com/specimen/Barlow) web font
+- [Manrope](https://fonts.google.com/specimen/Manrope) web font
 - Node.js built-in HTTP server and `fetch`

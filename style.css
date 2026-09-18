@@ -1,11 +1,12 @@
 :root {
-  --blue-deep: #0b2a5b;
-  --blue-mid: #2251a8;
-  --blue-light: #4f8fd9;
-  --panel-bg: rgba(13, 40, 82, 0.55);
-  --panel-border: rgba(255, 255, 255, 0.18);
-  --text-light: #eef4ff;
-  --text-muted: #b8cdd9;
+  --blue-deep: #12345b;
+  --blue-mid: #2677b8;
+  --blue-light: #dff4ff;
+  --sky: #75c9ed;
+  --panel-bg: rgba(255, 255, 255, 0.82);
+  --panel-border: rgba(255, 255, 255, 0.92);
+  --text-dark: #12345b;
+  --text-muted: #5d7891;
 }
 
 * {
@@ -15,14 +16,14 @@
 }
 
 body {
-  font-family: "Barlow", "Segoe UI", Tahoma, sans-serif;
+  font-family: "Manrope", "Segoe UI", Tahoma, sans-serif;
   background: linear-gradient(
-    160deg,
-    var(--blue-light) 0%,
-    var(--blue-mid) 45%,
-    var(--blue-deep) 100%
+    145deg,
+    #fafdff 0%,
+    var(--blue-light) 48%,
+    #a9def5 100%
   );
-  color: var(--text-light);
+  color: var(--text-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,18 +33,51 @@ body {
 .site-header {
   position: relative;
   overflow: hidden;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 86px;
   padding: 1.25rem 1rem;
-  background: rgba(57, 99, 171, 0.45);
-  backdrop-filter: blur(6px);
-  border: 1px solid #fff;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.92), rgba(224, 246, 255, 0.72));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(34, 104, 148, 0.1);
 }
 
 .site-header h1 {
-  font-size: 1.9rem;
-  font-weight: 700;
-  letter-spacing: 0.35em;
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--blue-deep);
+}
+
+.site-nav {
+  position: absolute;
+  right: 1.5rem;
+  z-index: 2;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(18, 52, 91, 0.16);
+  border-radius: 999px;
+  color: var(--blue-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(18, 52, 91, 0.3);
+  transform: translateY(-1px);
 }
 
 .header-plane {
@@ -57,9 +91,10 @@ body {
 
 .header-plane img {
   display: block;
-  height: 56px;
+  height: 46px;
   width: auto;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  opacity: 0.72;
+  filter: drop-shadow(0 3px 5px rgba(34, 104, 148, 0.22));
 }
 
 @keyframes fly-across {
@@ -75,28 +110,33 @@ body {
 .content {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: minmax(0, 1fr) 340px;
   gap: 1.25rem;
-  padding: 1.25rem;
+  align-items: start;
+  width: min(1380px, 100%);
+  margin: 0 auto;
+  padding: 1.5rem;
 }
 
 .map-panel,
 .details-panel {
   background: var(--panel-bg);
-  border: 1px solid #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(34, 104, 148, 0.16);
+  backdrop-filter: blur(12px);
 }
 
 #map {
   width: 100%;
-  height: 100%;
-  min-height: 520px;
-  border-radius: 12px;
+  height: clamp(380px, 48vw, 540px);
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 /* Flight details sidebar */
 .details-panel {
+  max-height: 540px;
   padding: 1.25rem;
   overflow-y: auto;
 }
@@ -106,14 +146,15 @@ body {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--panel-border);
+  color: var(--blue-deep);
+  border-bottom: 1px solid rgba(93, 120, 145, 0.2);
   padding-bottom: 0.6rem;
   margin-bottom: 0.75rem;
 }
 
 .details-empty {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 #flight-list {
@@ -122,7 +163,7 @@ body {
 
 #flight-list li {
   padding: 0.6rem 0.4rem;
-  border-bottom: 1px solid var(--panel-border);
+  border-bottom: 1px solid rgba(93, 120, 145, 0.16);
   font-size: 0.95rem;
 }
 
@@ -155,20 +196,142 @@ body {
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
   background: var(--blue-deep);
-  color: var(--text-light);
+  color: #f7fcff;
 }
 
 /* Footer */
 .site-footer {
   text-align: center;
-  padding: 1rem;
+  padding: 0.9rem 1rem;
   font-size: 0.85rem;
   color: var(--text-muted);
-  background: rgba(8, 26, 56, 0.45);
-  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.62);
+  border-top: 1px solid rgba(255, 255, 255, 0.88);
 }
 
 .footer-note {
   font-size: 0.75rem;
   opacity: 0.75;
+}
+
+.about-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 1.25rem;
+  align-content: center;
+  width: min(1000px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.about-card {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(34, 104, 148, 0.16);
+  backdrop-filter: blur(12px);
+}
+
+.about-card h2 {
+  margin-bottom: 1rem;
+  color: var(--blue-deep);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.about-card p {
+  max-width: 65ch;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.about-card p + p {
+  margin-top: 1rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.65rem;
+  color: var(--blue-mid) !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about-action {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  color: var(--blue-mid);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.about-action:hover,
+.about-action:focus-visible {
+  color: var(--blue-deep);
+}
+
+.about-card-secondary {
+  align-self: center;
+  padding: 1.75rem;
+}
+
+.about-card-secondary h2 {
+  font-size: 1.35rem;
+}
+
+.about-list {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+}
+
+.about-list li {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(93, 120, 145, 0.16);
+}
+
+.about-list strong {
+  color: var(--blue-deep);
+}
+
+.about-list span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .site-nav {
+    right: 1rem;
+  }
+
+  .site-nav a {
+    min-height: 34px;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  #map {
+    height: 380px;
+  }
+
+  .details-panel {
+    max-height: none;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    align-content: start;
+    padding: 1rem;
+  }
 }

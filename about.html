@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Overhead</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <span class="header-plane" aria-hidden="true">
+      <img src="Media/Images/flying-clipart-a380-airbus-4081366087.png" alt="">
+    </span>
+    <h1>Overhead</h1>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Radar</a>
+    </nav>
+  </header>
+
+  <main class="about-content">
+    <article class="about-card">
+      <p class="eyebrow">About Overhead</p>
+      <h2>See the skies above you.</h2>
+      <p>
+        Overhead shows aircraft flying within a 10 km radius of your current
+        location, giving you a simple way to discover the planes passing above.
+      </p>
+      <p>
+        The radar map displays live aircraft positions, while the flight
+        details panel provides useful information such as callsign, route,
+        aircraft type, registration, altitude, speed, heading, and distance
+        from you.
+      </p>
+      <a class="about-action" href="index.html">View the live radar <span aria-hidden="true">→</span></a>
+    </article>
+
+    <section class="about-card about-card-secondary">
+      <h2>How it works</h2>
+      <ul class="about-list">
+        <li><strong>Location</strong><span>Your browser location centers the radar around you.</span></li>
+        <li><strong>10 km radius</strong><span>Only aircraft inside the detection area are shown.</span></li>
+        <li><strong>Live updates</strong><span>Aircraft data refreshes automatically every 15 seconds.</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Gary Hoare</p>
+    <p class="footer-note">All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
